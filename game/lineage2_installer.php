@@ -20,12 +20,11 @@ class lineage2_installer extends abstract_game_install
 	 */
 	protected function install_factions()
 	{
-		global $db;
 
-		$db->sql_query('DELETE FROM ' . $this->table('bb_factions_table') . " WHERE game_id = '" . $db->sql_escape($this->game_id) . "'");
+		$this->db->sql_query('DELETE FROM ' . $this->table('bb_factions_table') . " WHERE game_id = '" . $this->db->sql_escape($this->game_id) . "'");
 		$sql_ary = array();
 		$sql_ary[] = array('game_id' => $this->game_id, 'faction_id' => 1, 'faction_name' => 'Default');
-		$db->sql_multi_insert($this->table('bb_factions_table'), $sql_ary);
+		$this->db->sql_multi_insert($this->table('bb_factions_table'), $sql_ary);
 	}
 
 	/**
@@ -33,9 +32,8 @@ class lineage2_installer extends abstract_game_install
 	 */
 	protected function install_classes()
 	{
-		global $db;
 
-		$db->sql_query('DELETE FROM ' . $this->table('bb_classes_table') . " WHERE game_id = '" . $db->sql_escape($this->game_id) . "'");
+		$this->db->sql_query('DELETE FROM ' . $this->table('bb_classes_table') . " WHERE game_id = '" . $this->db->sql_escape($this->game_id) . "'");
 		$sql_ary = array();
 
 		// Unknown
@@ -193,11 +191,11 @@ class lineage2_installer extends abstract_game_install
 		$sql_ary[] = array('game_id' => $this->game_id, 'class_id' => 108, 'class_armor_type' => 'LEATHER', 'class_min_level' => 85, 'class_max_level' => 99, 'colorcode' => '#32CD32', 'imagename' => 'lineage2_eolhhealer');
 		$sql_ary[] = array('game_id' => $this->game_id, 'class_id' => 109, 'class_armor_type' => 'LEATHER', 'class_min_level' => 85, 'class_max_level' => 99, 'colorcode' => '#CC00BB', 'imagename' => 'lineage2_wynnsummoner');
 
-		$db->sql_multi_insert($this->table('bb_classes_table'), $sql_ary);
+		$this->db->sql_multi_insert($this->table('bb_classes_table'), $sql_ary);
 		unset($sql_ary);
 
 		// class names (English only)
-		$db->sql_query('DELETE FROM ' . $this->table('bb_language_table') . " WHERE game_id = '" . $db->sql_escape($this->game_id) . "' AND attribute='class' ");
+		$this->db->sql_query('DELETE FROM ' . $this->table('bb_language_table') . " WHERE game_id = '" . $this->db->sql_escape($this->game_id) . "' AND attribute='class' ");
 
 		$sql_ary = array();
 		// Humans
@@ -324,7 +322,7 @@ class lineage2_installer extends abstract_game_install
 		$sql_ary[] = array('game_id' => $this->game_id, 'attribute_id' => 108, 'language' => 'en', 'attribute' => 'class', 'name' => 'Eolh Healer',          'name_short' => 'Eolh Healer');
 		$sql_ary[] = array('game_id' => $this->game_id, 'attribute_id' => 109, 'language' => 'en', 'attribute' => 'class', 'name' => 'Wynn Summoner',        'name_short' => 'Wynn Summoner');
 
-		$db->sql_multi_insert($this->table('bb_language_table'), $sql_ary);
+		$this->db->sql_multi_insert($this->table('bb_language_table'), $sql_ary);
 	}
 
 	/**
@@ -332,9 +330,8 @@ class lineage2_installer extends abstract_game_install
 	 */
 	protected function install_races()
 	{
-		global $db;
 
-		$db->sql_query('DELETE FROM ' . $this->table('bb_races_table') . " WHERE game_id = '" . $db->sql_escape($this->game_id) . "'");
+		$this->db->sql_query('DELETE FROM ' . $this->table('bb_races_table') . " WHERE game_id = '" . $this->db->sql_escape($this->game_id) . "'");
 		$sql_ary = array();
 		$sql_ary[] = array('game_id' => $this->game_id, 'race_id' => 0, 'race_faction_id' => 1, 'image_female' => ' ', 'image_male' => ' ');
 		$sql_ary[] = array('game_id' => $this->game_id, 'race_id' => 1, 'race_faction_id' => 1, 'image_female' => 'lineage2_human_female', 'image_male' => 'lineage2_human_male');
@@ -343,11 +340,11 @@ class lineage2_installer extends abstract_game_install
 		$sql_ary[] = array('game_id' => $this->game_id, 'race_id' => 4, 'race_faction_id' => 1, 'image_female' => 'lineage2_dwarf_female', 'image_male' => 'lineage2_dwarf_male');
 		$sql_ary[] = array('game_id' => $this->game_id, 'race_id' => 5, 'race_faction_id' => 1, 'image_female' => 'lineage2_orc_female', 'image_male' => 'lineage2_orc_male');
 		$sql_ary[] = array('game_id' => $this->game_id, 'race_id' => 6, 'race_faction_id' => 1, 'image_female' => 'lineage2_kamael_female', 'image_male' => 'lineage2_kamael_male');
-		$db->sql_multi_insert($this->table('bb_races_table'), $sql_ary);
+		$this->db->sql_multi_insert($this->table('bb_races_table'), $sql_ary);
 		unset($sql_ary);
 
 		// race names (English only)
-		$db->sql_query('DELETE FROM ' . $this->table('bb_language_table') . " WHERE game_id = '" . $db->sql_escape($this->game_id) . "' AND attribute='race' ");
+		$this->db->sql_query('DELETE FROM ' . $this->table('bb_language_table') . " WHERE game_id = '" . $this->db->sql_escape($this->game_id) . "' AND attribute='race' ");
 
 		$sql_ary = array();
 		$sql_ary[] = array('game_id' => $this->game_id, 'attribute_id' => 0, 'language' => 'en', 'attribute' => 'race', 'name' => 'Unknown',  'name_short' => 'Unknown');
@@ -357,6 +354,6 @@ class lineage2_installer extends abstract_game_install
 		$sql_ary[] = array('game_id' => $this->game_id, 'attribute_id' => 4, 'language' => 'en', 'attribute' => 'race', 'name' => 'Dwarf',    'name_short' => 'Dwarf');
 		$sql_ary[] = array('game_id' => $this->game_id, 'attribute_id' => 5, 'language' => 'en', 'attribute' => 'race', 'name' => 'Orc',      'name_short' => 'Orc');
 		$sql_ary[] = array('game_id' => $this->game_id, 'attribute_id' => 6, 'language' => 'en', 'attribute' => 'race', 'name' => 'Kamael',   'name_short' => 'Kamael');
-		$db->sql_multi_insert($this->table('bb_language_table'), $sql_ary);
+		$this->db->sql_multi_insert($this->table('bb_language_table'), $sql_ary);
 	}
 }
