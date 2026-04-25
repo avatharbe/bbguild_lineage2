@@ -79,4 +79,13 @@ class lineage2_provider implements game_provider_interface
 	{
 		return array();
 	}
+
+	public function get_armor_types(): array
+	{
+		return array(
+			'ROBE'    => 'Robes',
+			'LEATHER' => 'Leather',
+			'HEAVY'   => 'Heavy',
+		);
+	}
 }
