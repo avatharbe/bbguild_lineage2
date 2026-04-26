@@ -1,5 +1,5 @@
 {
-  "name": "avathar/bbguild_lineage2",
+  "name": "avathar/bbguild-lineage2",
   "type": "phpbb-extension",
   "description": "Lineage 2 game plugin for bbGuild. Provides Lineage 2 classes, races, and factions.",
   "homepage": "https://github.com/avandenberghe/bbguild",
