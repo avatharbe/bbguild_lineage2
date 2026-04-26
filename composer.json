@@ -27,7 +27,7 @@
     "version-check": {
       "host": "www.avathar.be",
       "directory": "/versioncheck",
-      "filename": "bbguild_lineage2.json",
+      "filename": "bbguild-lineage2.json",
       "ssl": true
     }
   }
